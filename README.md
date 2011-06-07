@@ -2,6 +2,7 @@
 A node.js redis client that has been extended to support lua-scripting. 
 
 ## Usage
+<pre>
 // Define config - OPTIONAL. Will default to port 6379 on localhost and the scripts dir included in this repo
 
 var config = {"port":6380, "host":"127.0.0.1", "scripts_dir":"/path/to/lua/scripts"}; 
@@ -16,12 +17,13 @@ var redis_client = require('path/to/node-redis-scripting/client.js').create(conf
 redis_client.somescript(keys, args, callback);
 
 // Note: 'keys' and 'args' are arrays - empty arrays must be passed if there are either no keys or args
-
+</pre>
 ## Examples
+<pre>
 redis_client.sissubset(['foo', 'bar'], [], console.log); // is bar a subset of foo?
 redis_client.sopscard(['foo'], ['smembers'], console.log); // get the cardinality of 'smembers' on set 'foo'
 redis_client.sopsrandsubset(['foo', 'bar'], ['sunion', 1], console.log); // get a one member random subset of the union of 'foo' and 'bar'
-
+</pre>
 ## Commands Included:
 
 ### MHDEL key1 [key2 ...] field
